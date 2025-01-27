@@ -9,16 +9,6 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-from decouple import Config, Csv
-
-# Create an instance of Config to fetch the environment variables
-config = Config()
-
-# Use it to fetch values from the .env file or environment variables
-SECRET_KEY = config('SECRET_KEY', default='your_default_secret_key')  # Change default to a temporary key if not set
-DEBUG = config('DEBUG', cast=bool, default=False)  # Set the default to False in production
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv(), default='localhost')  # To handle comma-separated list
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,7 +24,8 @@ SECRET_KEY = 'django-insecure-o(xv7ol6okt)b&(+)dla7%#yh20$^8xv*$7umt2vjpx$mwv_ws
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['deep-fake-detection.onrender.com']
+
 
 
 # Application definition
