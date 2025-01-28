@@ -10,6 +10,6 @@ def download_model():
     if not os.path.exists(MODEL_PATH):
         print("Downloading the model from Google Drive...")
         url = f'https://drive.google.com/uc?id={FILE_ID}'
-        gdown.download(url, MODEL_PATH, quiet=False)
+        gdown.download(url, MODEL_PATH, use_cookies=False)
     else:
         print("Model already exists locally.")
