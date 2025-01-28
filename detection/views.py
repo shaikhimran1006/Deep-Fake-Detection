@@ -10,17 +10,19 @@ import requests
 from io import BytesIO
 from .utils import download_model
 
-# Load your pre-trained model (adjust the path)
+# Download the model if it doesn't exist
 download_model()
+
+# Load the model once at startup
 MODEL_PATH = os.path.join(os.getcwd(), 'model.keras')
 model = load_model(MODEL_PATH)
 
+# Class names for prediction
+class_names = ['fake', 'real']
 
 # Define the home view
 def home(request):
     return HttpResponse("<h1>Deepfake Detector is Running</h1>")
-
-class_names = ['fake', 'real']
 
 @api_view(['POST'])
 @csrf_exempt
